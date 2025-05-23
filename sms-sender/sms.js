@@ -6,8 +6,8 @@ const bodyParser = require("body-parser");
 const twilio = require('twilio');
 const port = process.env.PORT || 3000;
 
-const accountSid = "";
-const authToken = "";
+const accountSid = "YOUR_ACCOUNT_SID";
+const authToken = "YOUR_AUTH_TOKEN";
 const client = twilio(accountSid, authToken);
 
 
@@ -26,7 +26,7 @@ app.post("/send-sms", (req, res) => {
     client.messages.create({
         body: body,
         to: to,
-        from: ""
+        from: "YOUR_TWILIO_PHONE_NUMBER"
     })
         .then(() => {
             res.send("SMS sent successfully");
